@@ -9,4 +9,3 @@ mongoose.connect("mongodb+srv://Manav:manav@cluster0.dmzfvgy.mongodb.net/Ecommer
     console.log("Unable to connect to MongoDB Atlas!");
     console.error(err);
   });
-
