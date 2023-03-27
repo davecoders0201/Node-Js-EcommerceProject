@@ -41,6 +41,6 @@ router.get("/productDetails",auth, productDetails);
 router.put("/productEdit", upload.single("image"),auth, productEdit);
 router.get("/productGetSingle",auth, productgetSingle);
 router.delete("/productDelete",auth, productDelete);
-router.get("/cartData", cartData)
+router.get("/cartData", cartData);
 
 module.exports = router;
