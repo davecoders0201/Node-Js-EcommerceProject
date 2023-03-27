@@ -35,10 +35,10 @@ router.get("/get_all_user", userList);
 router.get("/getSingle", getSingle);
 router.delete("/deleteUser", deleteUser);
 router.put("/editUser", editUser);
-router.post("/productData", upload.single("image"), productData);
-router.get("/productDetails", productDetails);
-router.put("/productEdit", upload.single("image"), productEdit);
-router.get("/productGetSingle", productgetSingle);
-router.delete("/productDelete", productDelete);
+router.post("/productData",auth, upload.single("image"), productData);
+router.get("/productDetails",auth, productDetails);
+router.put("/productEdit", upload.single("image"),auth, productEdit);
+router.get("/productGetSingle",auth, productgetSingle);
+router.delete("/productDelete",auth, productDelete);
 
 module.exports = router;
