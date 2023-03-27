@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // const auth = require("./auth");
 const RegisterModel = require("../models/registerModel");
 
-const login = function (request, response) {
+const userProfile = function (request, response) {
   // check if email exists
   RegisterModel.findOne({ email: request.body.email })
 
@@ -58,4 +58,4 @@ const login = function (request, response) {
       });
     });
 };
-module.exports = login;
+module.exports = userProfile;
