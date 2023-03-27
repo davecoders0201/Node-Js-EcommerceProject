@@ -13,6 +13,7 @@ const productDetails = require("../controller/products/productDetails");
 const productEdit = require("../controller/products/productEdit");
 const productgetSingle = require("../controller/products/productGetSingle");
 const productDelete = require("../controller/products/productDelete");
+const cartData = require("../controller/cart/cartData");
 
 var upload = multer({ dest: "../uploads/" });
 
@@ -40,5 +41,6 @@ router.get("/productDetails",auth, productDetails);
 router.put("/productEdit", upload.single("image"),auth, productEdit);
 router.get("/productGetSingle",auth, productgetSingle);
 router.delete("/productDelete",auth, productDelete);
+router.get("/cartData", cartData)
 
 module.exports = router;
