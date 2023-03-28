@@ -15,6 +15,7 @@ const productgetSingle = require("../controller/products/productGetSingle");
 const productDelete = require("../controller/products/productDelete");
 const cartData = require("../controller/cart/cartData");
 const userProfile = require("../controller/userProfile");
+const paymentData = require("../controller/payment/paymentData");
 
 var upload = multer({ dest: "../uploads/" });
 
@@ -44,5 +45,6 @@ router.get("/productGetSingle",auth, productgetSingle);
 router.delete("/productDelete",auth, productDelete);
 router.get("/cartData", cartData);
 router.get("/userProfile", auth, userProfile);
+router.get("/paymentData", paymentData);
 
 module.exports = router;
