@@ -45,6 +45,6 @@ router.get("/productGetSingle",auth, productgetSingle);
 router.delete("/productDelete",auth, productDelete);
 router.get("/cartData", cartData);
 router.get("/userProfile", auth, userProfile);
-router.get("/paymentData", paymentData);
+router.get("/paymentData", auth, paymentData);
 
 module.exports = router;
