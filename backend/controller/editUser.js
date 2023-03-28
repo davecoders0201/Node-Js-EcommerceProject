@@ -9,8 +9,6 @@ const editUser = function (request, response) {
   RegisterModel.findByIdAndUpdate(request.body._id, {
     your_name: request.body.your_name,
     email: request.body.email,
-    // password: hashedPassword,
-    // reenter_password: hashedPassword,
   })
     .then((result) => {
       console.log("RESULT-", result);
