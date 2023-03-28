@@ -8,7 +8,6 @@ const paymentData = function (request, response) {
     CardNumber: request.body.CardNumber,
     ExpiryDate: request.body.ExpiryDate,
     Cvc: request.body.Cvc,
-    postalCode: request.body.postalCode
   });
   payment
     .save()
