@@ -6,16 +6,15 @@ const jwt = require("jsonwebtoken");
 const RegisterModel = require("../models/registerModel");
 
 const getSingle = function (request, response) {
-    RegisterModel.findById(request.body._id)
+  RegisterModel.findById(request.body._id)
     .then((result) => {
-        console.log("RESULT-",result);
-        response.send({result:result})
-      })
-      .catch((err) => {
-        console.log("Error whiLE FETCHING DATA-",err);
-        response.send({err})
-      });
-
-}
+      console.log("RESULT-", result);
+      response.send({ result: result });
+    })
+    .catch((err) => {
+      console.log("Error whiLE FETCHING DATA-", err);
+      response.send({ err });
+    });
+};
 
 module.exports = getSingle;
