@@ -5,7 +5,6 @@ const registerSchema = new mongoose.Schema(
     email: { type: String, require: true, unique: true },
     password: { type: String, require: true },
     reenter_password: { type: String, require: true },
-    image: { type: String, require: true },
     token: { type: String },
   },
   { collection: "register" }
