@@ -1,6 +1,6 @@
 var express = require("express");
-var multer = require("multer");
 var router = express.Router();
+var multer = require("multer");
 const auth = require("../middleware/auth");
 const registerEndPoints = require("../controller/register");
 const loginEndPoints = require("../controller/login");
@@ -17,11 +17,11 @@ const cartData = require("../controller/cart/cartData");
 const userProfile = require("../controller/userProfile");
 const paymentData = require("../controller/payment/paymentData");
 
-var upload = multer({ dest: "../uploads/" });
+// var upload = multer({ dest: "/public/images/" });
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../uploads");
+    cb(null, "/images");
   },
 
   filename: function (req, file, cb) {
@@ -31,6 +31,7 @@ const storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+
 // register end point
 router.post("/register", upload.single("image"), registerEndPoints);
 router.post("/login", loginEndPoints);
@@ -38,8 +39,8 @@ router.get("/get_all_user", userList);
 router.get("/getSingle", getSingle);
 router.delete("/deleteUser", deleteUser);
 router.put("/editUser", editUser);
-router.post("/productData", auth, upload.single("image"), productData);
-router.get("/productDetails", auth, productDetails);
+router.get("/productData", upload.single("image"), productData);
+router.get("/productDetails", productDetails);
 router.put("/productEdit", upload.single("image"), auth, productEdit);
 router.get("/productGetSingle", auth, productgetSingle);
 router.delete("/productDelete", auth, productDelete);
