@@ -6,8 +6,12 @@ var logger = require("morgan");
 require("dotenv").config();
 require("./connection/db");
 
-var ecommerceRouter = require("./routes/ecommerce");
 var app = express();
+var ecommerceRouter = require("./routes/ecommerce");
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+const imagesRouter = require('./routes/imagesRouter');
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -17,6 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/ecommerce", ecommerceRouter);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/images', imagesRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
