@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/ecommerce", ecommerceRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/images', imagesRouter);
+app.use("/public", express.static(__dirname + "/public"));
 app.use(function (req, res, next) {
   next(createError(404));
 });
