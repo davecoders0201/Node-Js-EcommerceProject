@@ -17,11 +17,9 @@ const cartData = require("../controller/cart/cartData");
 const userProfile = require("../controller/userProfile");
 const paymentData = require("../controller/payment/paymentData");
 
-// var upload = multer({ dest: "/public/images/" });
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/images");
+    cb(null, "public/images");
   },
 
   filename: function (req, file, cb) {
@@ -30,7 +28,6 @@ const storage = multer.diskStorage({
 });
 
 var upload = multer({ storage: storage });
-
 
 // register end point
 router.post("/register", upload.single("image"), registerEndPoints);
