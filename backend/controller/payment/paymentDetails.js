@@ -1,18 +1,54 @@
-var express = require("express");
-var router = express.Router();
-// const auth = require("./auth");
-const PaymentModel = require("../../models/paymentModel");
+const paymentModel = require("../../models/paymentModel");
 
-const paymentDetails = function (request, response) {
-  PaymentModel.find()
-    .then((result) => {
-      console.log("RESULT-", result);
-      response.send({ result: result });
-    })
-    .catch((err) => {
-      console.log("Error whiLE FETCHING DATA-", err);
-      response.send({ err });
+const stripe = require("stripe")(
+  "sk_test_51MnbtkSI6t5fguBr2gPC7eQIXMvFjqNJpHonAnkL68KoV7aVKSIkxoswfZo3335qHQJ8oVPmZfmjhFwqQcYPLFbF00xOVJMYW3"
+); // Replace with your own secret key
+
+const createPaymentIntent = async (req, res) => {
+  try {
+    // Get the product details from the request body
+    const { productId } = req.body;
+
+    // Retrieve the product from the database
+    const product = await paymentModel.findById(productId);
+
+    // Create a new payment intent using the Stripe API
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 2000,
+      currency: "usd",
+      payment_method_types: ["card"],
     });
+
+    // Send the payment intent client secret as a response
+    res.status(200).json({ clientSecret: paymentIntent.client_secret });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
 };
 
-module.exports = paymentDetails;
+const generateToken = async (req, res) => {
+  try {
+    // Get the card details from the request body
+    const { cardNumber, expMonth, expYear, cvc } = req.body;
+
+    // Create a new token using the Stripe API
+    const token = await stripe.tokens.create({
+      card: {
+        number: cardNumber,
+        exp_month: expMonth,
+        exp_year: expYear,
+        cvc: cvc,
+      },
+    });
+
+    // Send the token as a response
+    res.status(200).json(token);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// module.exports = generateToken;
+module.exports = createPaymentIntent;

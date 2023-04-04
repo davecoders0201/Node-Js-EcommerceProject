@@ -16,7 +16,7 @@ const productDelete = require("../controller/products/productDelete");
 const cartData = require("../controller/cart/cartData");
 const userProfile = require("../controller/userProfile");
 const paymentData = require("../controller/payment/paymentData");
-const paymentDetails = require("../controller/payment/paymentDetails")
+const paymentDetails = require("../controller/payment/paymentDetails");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
