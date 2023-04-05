@@ -15,7 +15,7 @@ const createPaymentIntent = async (req, res) => {
     // Create a new payment intent using the Stripe API
     const paymentIntent = await stripe.paymentIntents.create({
       amount: 2000,
-      currency: "usd",
+      currency: "INR",
       payment_method_types: ["card"],
     });
 
