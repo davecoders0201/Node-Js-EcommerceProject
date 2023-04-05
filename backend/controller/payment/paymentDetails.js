@@ -6,11 +6,11 @@ const stripe = require("stripe")(
 
 const createPaymentIntent = async (req, res) => {
   try {
-    // Get the product details from the request body
-    const { productId } = req.body;
+    // Get the payment details from the request body
+    const { paymentId } = req.body;
 
-    // Retrieve the product from the database
-    const product = await paymentModel.findById(productId);
+    // Retrieve the payment from the database
+    const payment = await paymentModel.findById(paymentId);
 
     // Create a new payment intent using the Stripe API
     const paymentIntent = await stripe.paymentIntents.create({
