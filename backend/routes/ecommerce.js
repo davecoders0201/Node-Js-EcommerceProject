@@ -40,7 +40,7 @@ router.put("/editUser", editUser);
 router.get("/productData", upload.single("image"), productData);
 router.get("/productDetails", productDetails);
 router.put("/productEdit", upload.single("image"), auth, productEdit);
-router.get("/productGetSingle", auth, productgetSingle);
+router.get("/productGetSingle", productgetSingle);
 router.delete("/productDelete", auth, productDelete);
 router.get("/cartData", cartData);
 router.get("/userProfile", auth, userProfile);
