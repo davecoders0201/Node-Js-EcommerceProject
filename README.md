@@ -7,8 +7,8 @@ This Application was created for the Backend of the Ecommerce App
 [![React Native](https://img.shields.io/badge/React%20Native-v0.71-blue.svg?style=rounded-square)](https://facebook.github.io/react-native/)
 [![Node.js](https://img.shields.io/badge/Node.js-v18.16-green.svg?style=rounded-square)](https://nodejs.org/)
 ![Express.js](https://img.shields.io/badge/express.js-v18.16-%23404d59.svg?style=rounded-square)
-[![MongoDB](https://img.shields.io/badge/MongoDB-v4.18.2-%234ea94b.svg?style=rounded-square)](https://www.mongodb.com/atlas/database)
-![npm](https://img.shields.io/badge/npm-v4.18.2-%23404d59.svg?style=rounded-square)
+[![MongoDB](https://img.shields.io/badge/MongoDB-v4.18.2-green.svg?style=rounded-square)](https://www.mongodb.com/atlas/database)
+![npm](https://img.shields.io/badge/npm-v4.18.2-blue.svg?style=rounded-square)
 
 ### What is React Native ?
 
