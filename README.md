@@ -54,10 +54,10 @@ npm uninstall -g react-native-cli @react-native-community/cli
 npm install
 ```
 
-4. And the last just type in your terminal or cmd
+1. To start Server of NodeJs type command
 
 ```
-react-native run-android
+npm start
 ```
 
 be sure if you connected with a device on debugging mode or use the emulator on debugging mode too.
